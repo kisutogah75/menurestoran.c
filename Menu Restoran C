@@ -1,0 +1,67 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct menu_item {
+    char name[50];
+    float price;
+};
+
+struct menu {
+    char category[20];
+    int num_items;
+    struct menu_item *items;
+};
+
+int main() {
+    // Inisialisasi menu makanan
+    struct menu food_menu;
+    strcpy(food_menu.category, "Makanan");
+    food_menu.num_items = 3;
+    food_menu.items = malloc(food_menu.num_items * sizeof(struct menu_item));
+
+    strcpy(food_menu.items[0].name, "Ayam Goreng");
+    food_menu.items[0].price = 15000.0;
+    strcpy(food_menu.items[1].name, "Nasi Goreng");
+    food_menu.items[1].price = 12000.0;
+    strcpy(food_menu.items[2].name, "Mie Goreng");
+    food_menu.items[2].price = 10000.0;
+
+    // Inisialisasi menu minuman
+    struct menu drink_menu;
+    strcpy(drink_menu.category, "Minuman");
+    drink_menu.num_items = 3;
+    drink_menu.items = malloc(drink_menu.num_items * sizeof(struct menu_item));
+
+    strcpy(drink_menu.items[0].name, "Es Teh");
+    drink_menu.items[0].price = 4000.0;
+    strcpy(drink_menu.items[1].name, "Es Jeruk");
+    drink_menu.items[1].price = 5000.0;
+    strcpy(drink_menu.items[2].name, "Es Kelapa Muda");
+    drink_menu.items[2].price = 7000.0;
+
+    // Tampilkan menu makanan
+    printf("Kategori: %s\n", food_menu.category);
+    for (int i = 0; i < food_menu.num_items; i++) {
+        printf("%d. %s - Rp%.2f\n", i + 1, food_menu.items[i].name, food_menu.items[i].price);
+    }
+
+    // Tampilkan menu minuman
+    printf("\n");
+    
+    
+    return 0;
+    
+    
+    
+    //output 
+    
+//Kategori: Makanan
+//1. Ayam Goreng - Rp15000.00
+//2. Nasi Goreng - Rp12000.00
+//3. Mie Goreng - Rp10000.00
+
+//Kategori: Minuman
+//1. Es Teh - Rp4000.00
+//2. Es Jeruk - Rp5000.00
+//3. Es Kelapa Muda - Rp7000.00
+
